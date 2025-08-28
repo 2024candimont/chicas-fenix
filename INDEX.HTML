@@ -1,0 +1,1736 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plata 921 | Joyería Fina de Lujo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-oro: #C6A972;
+            --color-oro-brillante: #D4AF37;
+            --color-oro-claro: #F4EBC9;
+            --color-blanco: #FFFFFF;
+            --color-marfil: #F9F6F0;
+            --color-negro: #0A0A0A;
+            --color-gris-oscuro: #1A1A1A;
+            --color-gris: #7D7D7D;
+            --sombra-suave: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --transicion: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: var(--color-marfil);
+            color: var(--color-gris-oscuro);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* Encabezado de lujo */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--sombra-suave);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transicion);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--color-oro-brillante);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            letter-spacing: 1px;
+        }
+        
+        .logo span {
+            color: var(--color-negro);
+            margin-left: 5px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 40px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--color-negro);
+            font-weight: 500;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            transition: var(--transicion);
+            position: relative;
+            cursor: pointer;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--color-oro-brillante);
+            transition: var(--transicion);
+        }
+        
+        nav ul li a:hover {
+            color: var(--color-oro-brillante);
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            position: relative;
+        }
+        
+        .header-icons a {
+            color: var(--color-negro);
+            transition: var(--transicion);
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .header-icons a:hover {
+            color: var(--color- oro-brillante);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--color-oro-brillante);
+            color: var(--color-blanco);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .cart-count.active {
+            display: flex;
+        }
+
+        /* Modal de búsqueda */
+        .search-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 100px;
+        }
+
+        .search-modal.active {
+            display: flex;
+        }
+
+        .search-container {
+            width: 80%;
+            max-width: 600px;
+            background: var(--color-blanco);
+            padding: 30px;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid var(--color-oro);
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .search-container button {
+            background: var(--color-oro);
+            color: var(--color-blanco);
+            border: none;
+            padding: 15px 30px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .close-search {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--color-negro);
+        }
+
+        /* Modal de login */
+        .login-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-modal.active {
+            display: flex;
+        }
+
+        .login-container {
+            width: 90%;
+            max-width: 400px;
+            background: var(--color-blanco);
+            padding: 40px;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--color-oro);
+            font-family: 'Cinzel', serif;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 15px;
+            background: var(--color-oro);
+            color: var(--color-blanco);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .close-login {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--color-negro);
+        }
+
+        /* Carrito de compras */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100%;
+            background: var(--color-blanco);
+            z-index: 2000;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transicion);
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .cart-sidebar.active {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .cart-header h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--color-oro);
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .cart-items {
+            margin-bottom: 30px;
+        }
+
+        .cart-item {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+            position: relative;
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-right: 15px;
+            background: var(--color-oro-claro);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-info h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-info p {
+            color: var(--color-oro);
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .item-quantity {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .quantity-btn {
+            width: 25px;
+            height: 25px;
+            background: var(--color-oro-claro);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quantity-input {
+            width: 40px;
+            height: 25px;
+            text-align: center;
+            margin: 0 10px;
+            border: 1px solid #ddd;
+        }
+
+        .remove-item {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .remove-item:hover {
+            color: #ff0000;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+
+        .checkout-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: var(--color-oro);
+            color: var(--color-blanco);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            transition: var(--transicion);
+        }
+
+        .checkout-btn:hover {
+            background: var(--color-oro-brillante);
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--color-gris);
+        }
+
+        .empty-cart i {
+            font-size: 50px;
+            margin-bottom: 20px;
+            color: var(--color-oro-claro);
+        }
+        
+        /* Hero Section de lujo */
+        .hero {
+            background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)), url('https://images.unsplash.com/photo-1515562141207-7a88fb7ad5e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--color-blanco);
+            position: relative;
+            margin-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero h1 span {
+            color: var(--color-oro-brillante);
+            display: block;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            font-style: italic;
+            color: var(--color-oro-claro);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--color-blanco);
+            padding: 15px 40px;
+            border: 1px solid var(--color-oro-brillante);
+            border-radius: 0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transicion);
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            cursor: pointer;
+        }
+        
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--color-oro-brillante);
+            transition: var(--transicion);
+            z-index: -1;
+        }
+        
+        .btn:hover:before {
+            left: 0;
+        }
+        
+        .btn:hover {
+            color: var(--color-negro);
+        }
+        
+        /* Sección de productos de lujo */
+        .products {
+            padding: 120px 0;
+            background-color: var(--color-blanco);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        
+        .section-title h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            color: var(--color-negro);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 20px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background-color: var(--color-oro-brillante);
+        }
+        
+        .section-title p {
+            max-width: 600px;
+            margin: 20px auto 0;
+            color: var(--color-gris);
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .product-card {
+            background-color: var(--color-marfil);
+            border-radius: 5px;
+            overflow: hidden;
+            transition: var(--transicion);
+            position: relative;
+            box-shadow: var(--sombra-suave);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-img {
+            height: 300px;
+            background: linear-gradient(to bottom, var(--color-oro-claro), var(--color-marfil));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transicion);
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 25px;
+            text-align: center;
+            border-top: 1px solid var(--color-oro-claro);
+        }
+        
+        .product-info h3 {
+            margin-bottom: 15px;
+            color: var(--color-negro);
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+        }
+        
+        .product-info p {
+            color: var(--color-gris);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        
+        .price {
+            font-weight: bold;
+            color: var(--color-oro-brillante);
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .add-to-cart {
+            background: var(--color-oro);
+            color: var(--color-blanco);
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: var(--transicion);
+        }
+
+        .add-to-cart:hover {
+            background: var(--color-oro-brillante);
+        }
+        
+        /* Sección sobre nosotros de lujo */
+        .about {
+            padding: 120px 0;
+            background: linear-gradient(to bottom, var(--color-marfil), var(--color-blanco));
+            position: relative;
+        }
+        
+        .about:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%23F4EBC9" stroke-width="0.5"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 60px;
+        }
+        
+        .about-text h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            color: var(--color-negro);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .about-text h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background-color: var(--color-oro-brillante);
+        }
+        
+        .about-text p {
+            margin-bottom: 25px;
+            color: var(--color-gris);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            height: 500px;
+            background: linear-gradient(to bottom, var(--color-oro-claro), var(--color-marfil));
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%23C6A972" stroke-width="0.7"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Sección de características premium */
+        .features {
+            padding: 120px 0;
+            background-color: var(--color-gris-oscuro);
+            color: var(--color-blanco);
+            position: relative;
+        }
+        
+        .features:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%232A2A2A" stroke-width="0.7"/></svg>');
+            opacity: 0.5;
+        }
+        
+        .section-title.light h2 {
+            color: var(--color-blanco);
+        }
+        
+        .section-title.light h2:after {
+            background-color: var(--color-oro-brillante);
+        }
+        
+        .section-title.light p {
+            color: var(--color-oro-claro);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 40px 30px;
+            border-radius: 5px;
+            background: linear-gradient(to bottom, var(--color-negro), var(--color-gris-oscuro));
+            transition: var(--transicion);
+            border: 1px solid rgba(198, 169, 114, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-oro);
+        }
+        
+        .feature-icon {
+            font-size: 50px;
+            color: var(--color-oro-brillante);
+            margin-bottom: 25px;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 20px;
+            color: var(--color-blanco);
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+        }
+        
+        .feature-card p {
+            color: var(--color-oro-claro);
+        }
+
+        /* Nueva sección: proceso de fabricación */
+        .process {
+            padding: 120px 0;
+            background-color: var(--color-blanco);
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .process-step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 30px;
+            position: relative;
+        }
+
+        .process-step:not(:last-child):after {
+            content: '→';
+            position: absolute;
+            right: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-oro);
+            font-size: 24px;
+        }
+
+        .process-number {
+            width: 60px;
+            height: 60px;
+            border: 2px solid var(--color-oro);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            color: var(--color-oro);
+            font-family: 'Cinzel', serif;
+        }
+
+        .process-step h3 {
+            margin-bottom: 15px;
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Nueva sección: testimonios */
+        .testimonials {
+            padding: 120px 0;
+            background: var(--color-marfil);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background: var(--color-blanco);
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: var(--sombra-suave);
+            position: relative;
+        }
+
+        .testimonial-card:before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 60px;
+            color: var(--color-oro-claro);
+            font-family: 'Cinzel', serif;
+        }
+
+        .testimonial-text {
+            margin-bottom: 20px;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            background: var(--color-oro-claro);
+        }
+
+        .author-info h4 {
+            font-family: 'Cinzel', serif;
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: var(--color-gris);
+            font-size: 14px;
+        }
+        
+        /* Pie de página de lujo */
+        footer {
+            background-color: var(--color-negro);
+            color: var(--color-blanco);
+            padding: 100px 0 40px;
+            position: relative;
+        }
+        
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--color-oro), transparent);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-column h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--color-oro-brillante);
+        }
+        
+        .footer-column p, .footer-column a {
+            color: #ccc;
+            margin-bottom: 15px;
+            display: block;
+            text-decoration: none;
+            transition: var(--transicion);
+        }
+        
+        .footer-column a:hover {
+            color: var(--color-oro-brillante);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transicion);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--color-oro-brillante);
+            color: var(--color-negro);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 50px;
+            }
+            
+            nav ul li {
+                margin-left: 25px;
+            }
+
+            .process-step:not(:last-child):after {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 25px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 10px 15px;
+            }
+            
+            .header-icons {
+                margin-top: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+
+            .cart-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+        }
+        
+        /* Efectos de scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Animaciones sutiles */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .product-card, .feature-card {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        
+        /* Efecto de brillo en elementos dorados */
+        .shine {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .shine:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+            opacity: 0;
+        }
+        
+        @keyframes shine {
+            0% { opacity: 0; left: -50%; }
+            10% { opacity: 1; }
+            100% { opacity: 0; left: 100%; }
+        }
+
+        /* Overlay para modales */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1999;
+        }
+
+        .modal-overlay.active {
+            display: block;
+        }
+
+        /* Notificación de producto añadido */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--color-oro);
+            color: var(--color-blanco);
+            padding: 15px 25px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .notification.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .notification i {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Overlay para modales -->
+    <div class="modal-overlay" id="modalOverlay"></div>
+
+    <!-- Notificación -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notification-text">Producto añadido al carrito</span>
+    </div>
+
+    <!-- Modal de búsqueda -->
+    <div class="search-modal" id="searchModal">
+        <div class="search-container">
+            <button class="close-search" id="closeSearch"><i class="fas fa-times"></i></button>
+            <h2>Buscar en nuestra colección</h2>
+            <input type="text" placeholder="¿Qué joya estás buscando?">
+            <button>Buscar</button>
+        </div>
+    </div>
+
+    <!-- Modal de login -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-container">
+            <button class="close-login" id="closeLogin"><i class="fas fa-times"></i></button>
+            <h2>Iniciar Sesión</h2>
+            <input type="text" placeholder="Correo electrónico">
+            <input type="password" placeholder="Contraseña">
+            <button>Ingresar</button>
+            <p>¿No tienes cuenta? <a href="#" style="color: var(--color-oro);">Regístrate aquí</a></p>
+        </div>
+    </div>
+
+    <!-- Carrito de compras -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>Tu Carrito</h2>
+            <button class="close-cart" id="closeCart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <p>Tu carrito está vacío</p>
+            </div>
+        </div>
+        <div class="cart-total" id="cartTotal" style="display: none;">
+            <span>Total:</span>
+            <span id="totalAmount">$0 MXN</span>
+        </div>
+        <a href="#" class="checkout-btn" id="checkoutBtn" style="display: none;">Proceder al Pago</a>
+    </div>
+
+    <!-- Encabezado -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">CHICAS<span>FENIX</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#coleccion">Colección</a></li>
+                    <li><a href="#nosotros">Sobre Nosotros</a></li>
+                    <li><a href="#proceso">Proceso</a></li>
+                    <li><a href="#testimonios">Testimonios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a id="searchButton"><i class="fas fa-search"></i></a>
+                <a id="userButton"><i class="fas fa-user"></i></a>
+                <a id="cartButton"><i class="fas fa-shopping-bag"></i><span class="cart-count" id="cartCount">0</span></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>ELEGANCIA EN <span>CHICAS FENIX</span></h1>
+            <p>La más alta expresión de artesanía en plata con detalles en oro de 18k</p>
+            <a href="#coleccion" class="btn">Descubrir Colección</a>
+        </div>
+    </section>
+
+    <!-- Sección de Productos -->
+    <section class="products" id="coleccion">
+        <div class="container">
+            <div class="section-title">
+                <h2>Colección Exclusiva</h2>
+                <p>Piezas únicas elaboradas con los más altos estándares de calidad</p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://scontent.fjal3-1.fna.fbcdn.net/v/t39.30808-6/468812522_122100566588651687_1025428065153033927_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=O7ruRuWooLQQ7kNvwGEMrUb&_nc_oc=AdkhE4CVQzdtKt6sx31E3BOmbrarpNTvRLWAJAkdvt-3cDKvBTKwmvZkgg8uo0GpMyh9TLP7AfQRVaJ3IwtnbpCP&_nc_zt=23&_nc_ht=scontent.fjal3-1.fna&_nc_gid=hf0HFWfs0y4sLUTzYjxP9w&oh=00_AfWiXBIpkLiB4cB0HKOTurkDsvwBAHweGSNqgfCcXdHMNg&oe=68B55F52" alt="Arete pluma">
+                    </div>
+                    <div class="product-info">
+                        <h3>Arete corazones</h3>
+                        <p>Arete corazones oro laminado</p>
+                        <span class="price">$260 MXN</span>
+                        <button class="add-to-cart" data-id="1" data-name="Anillo Sophia" data-price="2450" data-img="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80">Añadir al Carrito</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://scontent.fjal3-1.fna.fbcdn.net/v/t39.30808-6/468867873_122100567308651687_4649960075786175188_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=gYw3_vGYyCgQ7kNvwFTLO7-&_nc_oc=Adm_bYbZRbgyNlKBVSK40Dcr_77OzrHC0401VLWt6sJEyDQViP340B9LJPOs2xDNaXNey3jpBukaFz8TFkvQzmUv&_nc_zt=23&_nc_ht=scontent.fjal3-1.fna&_nc_gid=3HyZ4iQx57Gb1ko8gvC9Vw&oh=00_AfWY_txEhEqy-FLRKPw_EEeo2BGSAopMmZg3AdmaXHgrmg&oe=68B5645C" alt="ARETE PLUMA">
+                    </div>
+                    <div class="product-info">
+                        <h3>ARETE PLUMA</h3>
+                        <p>ARETE PLUMA ORO LAMINADO </p>
+                        <span class="price">$260 MXN</span>
+                        <button class="add-to-cart" data-id="2" data-name="ARETE PLUMA" data-price="3200" data-img="https://images.unsplash.com/photo-1596944946755-2a7e4c72c2b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80">Añadir al Carrito</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://scontent.fjal3-1.fna.fbcdn.net/v/t39.30808-6/492047185_122132692040651687_3801639918296478207_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_ohc=4hKmMdZyk2AQ7kNvwFPQFlh&_nc_oc=Adk0pBN-ED9YPFbEkDxFfnKqzwNLfisXuWOhZSuNAQWJ3BzhaMwHbSkAwkfYGl0vy1MqUwjPPfHpSUg2qDY0DcOl&_nc_zt=23&_nc_ht=scontent.fjal3-1.fna&_nc_gid=QeVDs95ZLj63vPgk67XgVw&oh=00_AfV2oEr6JfBCeE2uNd_ELcIyZRyCaSVHP1B_LPk4FrNNOg&oe=68B57E19" alt="ARRACADAS">
+                    </div>
+                    <div class="product-info">
+                        <h3>ARRACADAS </h3>
+                        <p>ARRACADAS </p>
+                        <span class="price">$200 MXN</span>
+                        <button class="add-to-cart" data-id="3" data-name="ARRACADAS" data-price="2800" data-img="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80">Añadir al Carrito</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://scontent.fjal3-1.fna.fbcdn.net/v/t39.30808-6/491803517_122132691608651687_7426901016114103239_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=gzLYigM0KZcQ7kNvwHwn8H0&_nc_oc=Adknm4GPmQF6VgWhTCv-UAnYzWwhJFWigcHc_gpebpziuwad1hqhUikOHPcSqzD6H48I-dmhWKMRr4ZXuk19f0Z5&_nc_zt=23&_nc_ht=scontent.fjal3-1.fna&_nc_gid=1OZw-y2GWxv21pfCjXiXSQ&oh=00_AfXNI_d0lYPwTqJNX9czMo3Jq7kHzuR0DD-4LODRTEVmGg&oe=68B58B06" alt="ARETE CEREZAS">
+                    </div>
+                    <div class="product-info">
+                        <h3>ARETE CEREZAS</h3>
+                        <p>ARETE CEREZAS ORO LAMINADO</p>
+                        <span class="price">$250 MXN</span>
+                        <button class="add-to-cart" data-id="4" data-name="ARETE CEREZAS" data-price="7500" data-img="https://images.unsplash.com/photo-1515562141207-7a88fb7ad5e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80">Añadir al Carrito</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://scontent.fjal3-1.fna.fbcdn.net/v/t39.30808-6/525970211_10223795312949957_7932577761854270287_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_ohc=ruj33H681zkQ7kNvwE2fpco&_nc_oc=AdmHw5SMlhwinj71q6Svy8FigNKl5WmbkTrsnoFywMaihVRm-7mxv1uOKYgCOJOl-D4Mu8uR0QGv0r5NE43FMloY&_nc_zt=23&_nc_ht=scontent.fjal3-1.fna&_nc_gid=4tlWBmjq5BfeMfdxX7tHYg&oh=00_AfV9N5HM-MFaG1iu7xwNo0187O8WVTpk8pBbj3F8Q_nSyQ&oe=68B562D6" alt="ARETE MARIPOSAS">
+                    </div>
+                    <div class="product-info">
+                        <h3>ARETE MARIPOSAS</h3>
+                        <p>ARETE MARIPOSAS PLATA</p>
+                        <span class="price">$200 MXN</span>
+                        <button class="add-to-cart" data-id="5" data-name="ARETE MARIPOSAS" data-price="1850" data-img="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80">Añadir al Carrito</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://scontent.fjal3-1.fna.fbcdn.net/v/t39.30808-6/537801265_10224000901449541_8180566565937234784_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=EYpUB2HB6qUQ7kNvwGR8hEx&_nc_oc=AdmlF6RICtfcFvSuHm8IjwuCfJdrhubvbmAa0pyIYXgcE2ELRBiQOpbg7VqFO1nescTyzs7T61Iv-sMhbPOQPdSw&_nc_zt=23&_nc_ht=scontent.fjal3-1.fna&_nc_gid=knzshftUtym-h5VnBvaQsg&oh=00_AfUtk4lyOBILpPqq6yPh2M6pazZz8Enih6iSbeTFI4TGGg&oe=68B56824" alt="JUEGO DE CCORAZONES">
+                    </div>
+                    <div class="product-info">
+                        <h3>JUEGO DE CORAZONES</h3>
+                        <p>JUEGO DE CORAZONES ORO LAMINADO </p>
+                        <span class="price">$400MXN</span>
+                        <button class="add-to-cart" data-id="6" data-name="JUEGO DE CORAZONES" data-price="3750" data-img="https://images.unsplash.com/photo-1594576722512-582d5577aae1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80">Añadir al Carrito</button>
+                    </div>
+                </div>
+                 <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://scontent.fjal3-1.fna.fbcdn.net/v/t39.30808-6/536280432_10224000900609520_3362995342723906511_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=0Hlfz5znwvUQ7kNvwFbwF5l&_nc_oc=AdlGbgkf5dXfG8tovlo8MBOlCZ0biftS9MqURkkCSHFSDIt0B5M2MwcYuq_KtdkWuFDRr6SAOfLNNIP4iaxCs2Vc&_nc_zt=23&_nc_ht=scontent.fjal3-1.fna&_nc_gid=mIP68uRpSyTlwZeZKv2sKw&oh=00_AfX7zSUhB1Rk2SV1Dbpiq7Ft_lPucJ5VukrcxD9lKBwPLA&oe=68B5643E" alt="JUEGO DE BUHO">
+                    </div>
+                    <div class="product-info">
+                        <h3>JUEGO DE BUHO</h3>
+                        <p>JUEGO DE BUHO ORO LAMINADO </p>
+                        <span class="price">$400MXN</span>
+                        <button class="add-to-cart" data-id="6" data-name="JUEGO DE BUHO" data-price="3750" data-img="https://images.unsplash.com/photo-1594576722512-582d5577aae1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80">Añadir al Carrito</button>
+                    </div>
+                </div>
+                 <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://scontent.fjal3-1.fna.fbcdn.net/v/t39.30808-6/536286320_10224000900969529_1239249874080291745_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_ohc=sPo6PMIf5HIQ7kNvwHsYemq&_nc_oc=AdmbyWrrh3gBD77JM4psTjHJZtubZWu9qq2MQSbXWvR8KwnortEheEGzXCWJQnyJ3TI2hjABSIPkd0WHfEEKak6K&_nc_zt=23&_nc_ht=scontent.fjal3-1.fna&_nc_gid=knzshftUtym-h5VnBvaQsg&oh=00_AfUe5nMdtYV0Kbnc4gdz_k3I_jkT5GSWus6j5OthmMohkQ&oe=68B56E8A" alt="JUEGO DE TREBOL">
+                    </div>
+                    <div class="product-info">
+                        <h3>JUEGO DE TREBOL</h3>
+                        <p>JUEGO DE TREBOL PLATA </p>
+                        <span class="price">$600 MXN</span>
+                        <button class="add-to-cart" data-id="6" data-name="JUEGO DE TREBOL" data-price="3750" data-img="https://images.unsplash.com/photo-1594576722512-582d5577aae1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80">Añadir al Carrito</button>
+                    </div>
+                </div>
+                 <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://scontent.fjal3-1.fna.fbcdn.net/v/t39.30808-6/539630703_10224000902529568_6478103896392408763_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=A6uf0dQDR0MQ7kNvwH7CKnh&_nc_oc=Adk14ku58EoXmdjObe2GDxh_FGiTSBpf87fa2_oP8mO0cNgOOZ0bnwoefsYuUJdsUeTpTF8JWXKqOZZH9cNAAQrB&_nc_zt=23&_nc_ht=scontent.fjal3-1.fna&_nc_gid=DBr-2mD7Kc91GmUDjKTYuw&oh=00_AfWlPR_TdwyRiGwJ4KVRF9PZAmeUQJcXavvhHDwa2f-qgQ&oe=68B563B9" alt="PULSERAS">
+                    </div>
+                    <div class="product-info">
+                        <h3>PULSERAS</h3>
+                        <p>JPULSERAS ORO LAMINADO </p>
+                        <span class="price">$200 MXN</span>
+                        <button class="add-to-cart" data-id="6" data-name="JUEGO DE CORAZONES" data-price="3750" data-img="https://images.unsplash.com/photo-1594576722512-582d5577aae1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80">Añadir al Carrito</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://scontent.fjal3-1.fna.fbcdn.net/v/t39.30808-6/518357024_10223724790626943_3461974278606617725_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_ohc=lPZSkZAdoSYQ7kNvwEOqRSJ&_nc_oc=Adm8oaC0gPNTJR8VHcSuD00H3kX4FtFyDhcrz_3oV_VyfHmJqJWvFO34fqZ_ZUWlEng4gyFTbyiWOgwEgX2KTU0q&_nc_zt=23&_nc_ht=scontent.fjal3-1.fna&_nc_gid=1tfDfrr4BmFbd6rpjUKAVw&oh=00_AfV091hJG-VIZL0m6XN5HKPNj9QUB4bUkpSDJVGS-L7EEQ&oe=68B56C39" alt="CADENAS">
+                    </div>
+                    <div class="product-info">
+                        <h3>CADENAS</h3>
+                        <p>CADENAS PLATA </p>
+                        <span class="price">$1000 MXN</span>
+                        <button class="add-to-cart" data-id="6" data-name="CADENAS PLATA" data-price="3750" data-img="https://images.unsplash.com/photo-1594576722512-582d5577aae1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80">Añadir al Carrito</button>
+                    </div>
+                </div>
+                 <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://scontent.fjal3-1.fna.fbcdn.net/v/t39.30808-6/518369942_10223724792907000_474194447376686894_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=x0wQ0_C7ro4Q7kNvwEPjeyY&_nc_oc=AdkRpyku_diM76txHbk0IKmMQFMh9WZddyVCfdYwhxK4lozf11aHoV4BksLJku3NwVGgOqTazastiT-S4P0lOrH8&_nc_zt=23&_nc_ht=scontent.fjal3-1.fna&_nc_gid=RbZIiIOpnLSi6oBWlan08A&oh=00_AfX4GnRpzgOQ6JAy5z2W6-tN0PCJGIhFtro2YmOBzVHgAw&oe=68B58781" alt="EXCLAVAS">
+                    </div>
+                    <div class="product-info">
+                        <h3>EXCLAVAS</h3>
+                        <p>EXCLAVAS  PLATA </p>
+                        <span class="price">$600 MXN</span>
+                        <button class="add-to-cart" data-id="6" data-name="EXCLAVAS" data-price="3750" data-img="https://images.unsplash.com/photo-1594576722512-582d5577aae1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80">Añadir al Carrito</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://scontent.fjal3-1.fna.fbcdn.net/v/t39.30808-6/537010271_10224000901809550_4663101481963468774_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=cWNYtNdM8nAQ7kNvwEpDoss&_nc_oc=AdlPdRK_HIwivzPNJO4Q7JR6N0fOBSsqPJsL4xj9RQm578GFVekzX57sKIixhwtro_2v5A2oZbuL_5Rdmz9StRH5&_nc_zt=23&_nc_ht=scontent.fjal3-1.fna&_nc_gid=RBLawxFx7qjE20R8k6r2aQ&oh=00_AfUMW6ttPJoQTN_XCheGt4O_HtHZajr_7MWeFg7CHbILlg&oe=68B57A2E" alt="ANILLOS">
+                    </div>
+                    <div class="product-info">
+                        <h3>ANILLOS </h3>
+                        <p>ANILLOS PLATA </p>
+                        <span class="price">$500 MXN</span>
+                        <button class="add-to-cart" data-id="6" data-name="ANILLOS" data-price="3750" data-img="https://images.unsplash.com/photo-1594576722512-582d5577aae1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80">Añadir al Carrito</button>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Nosotros -->
+    <section class="about" id="nosotros">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>La Excelencia de las chicas fenix</h2>
+                    <p>La plata 921 representa la cúspide de la calidad en joyería fina. Con un 92.5% de pureza, esta aleación ofrece el equilibrio perfecto entre brillo, durabilidad y maleabilidad, permitiendo crear piezas de exquisito detalle.</p>
+                    <p>Nuestros maestros joyeros combinan técnicas centenarias con diseño contemporáneo para crear piezas que trascienden tendencias y se convierten en tesoros eternos.</p>
+                    <p>Cada joya es un testimonio de artesanía excepcional, meticulosamente elaborada y revisada para garantizar la perfección en cada detalle.</p>
+                    <p>Fundada en 1985, nuestra joyería ha sido reconocida con múltiples premios internacionales por la excelencia en el diseño y fabricación de joyas de plata 921.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://scontent.fjal3-1.fna.fbcdn.net/v/t39.30808-6/474760485_122118276008651687_2576458401701934486_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=O34tH9lYhZwQ7kNvwEH37QU&_nc_oc=AdnI8OKz-itDvNCQeAVr7r6k46tIZkZ2QrMuZEj1Rz2N8PrKpy2Vz1-ZfsQSqZ-w7K2Mq4rb5sze4DypbNS3s1f_&_nc_zt=23&_nc_ht=scontent.fjal3-1.fna&_nc_gid=q3cKn3TZf4iAR8cq4xz1Pg&oh=00_AfUCNX66Gb-xdA4z8qxvwnUXhuPXxkQ-ku0_GurQwv8gMw&oe=68B589DC" alt="Taller de joyería">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Proceso -->
+    <section class="process" id="proceso">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestro Proceso Artesanal</h2>
+                <p>Cada pieza es creada con dedicación y atención al detalle</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-number">1</div>
+                    <h3>Diseño</h3>
+                    <p>Nuestros diseñadores crean bocetos exclusivos para cada pieza, considerando tendencias y tradiciones.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">2</div>
+                    <h3>Selección de Materiales</h3>
+                    <p>Seleccionamos cuidadosamente la plata 921 y los complementos de oro para garantizar la máxima calidad.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">3</div>
+                    <h3>Elaboración</h3>
+                    <p>Nuestros artesanos dan forma a cada pieza con técnicas tradicionales y herramientas especializadas.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">4</div>
+                    <h3>Control de Calidad</h3>
+                    <p>Cada joya es inspeccionada meticulosamente para garantizar perfección antes de ser enviada.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Testimonios -->
+    <section class="testimonials" id="testimonios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Opiniones de Nuestros Clientes</h2>
+                <p>La satisfacción de nuestros clientes es nuestra mayor recompensa</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Compré un anillo de compromiso y superó todas mis expectativas. La calidad de la plata 921 es excepcional y los detalles en oro son impresionantes.</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Carlos Mendoza</h4>
+                            <p>Ciudad de México</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">He comprado varias piezas y todas son de una calidad extraordinaria. El servicio al cliente es excelente y siempre están dispuestos a ayudar.</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Ana Rodríguez</h4>
+                            <p>Guadalajara</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">El Set Real que compré para mi wedding anniversary fue perfecto. La atención al detalle y la artesanía son incomparables. ¡Altamente recomendados!</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Roberto Sánchez</h4>
+                            <p>Monterrey</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Características -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title light">
+                <h2>Artesanía Exceptional</h2>
+                <p>Razones por las que nuestras joyas son incomparables</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>Calidad Certificada</h3>
+                    <p>Todas nuestras piezas están certificadas como plata 921 con sello de autenticidad.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hand-sparkles"></i>
+                    </div>
+                    <h3>Elaboración Artesanal</h3>
+                    <p>Maestros joyeros con más de 20 años de experiencia elaboran cada pieza a mano.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Materiales Premium</h3>
+                    <p>Utilizamos oro de 18-24k y zirconias de la más alta calidad en nuestros diseños.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Diseño Exclusivo</h3>
+                    <p>Creaciones únicas que no encontrarás en ninguna otra joyería.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de Página -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Plata 921</h3>
+                    <p>Joyería fina especializada en plata 921 con los más altos estándares de calidad y diseño exclusivo.</p>
+                    <p>Av. Joyería 921, Col. Centro, Ciudad de México</p>
+                    <p>Tel: (55) 9210 9210</p>
+                    <p>Email: info@plata921.com</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Colecciones</h3>
+                    <a href="#">Anillos</a>
+                    <a href="#">Collares</a>
+                    <a href="#">Pulseras</a>
+                    <a href="#">Juegos Completos</a>
+                    <a href="#">Edición Limitada</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Servicio al Cliente</h3>
+                    <a href="#">Preguntas Frecuentes</a>
+                    <a href="#">Envíos y Entregas</a>
+                    <a href="#">Cambios y Devoluciones</a>
+                    <a href="#">Cuidado de Joyas</a>
+                    <a href="#">Garantía</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Síguenos</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h3 style="margin-top: 30px;">Métodos de Pago</h3>
+                    <p>Aceptamos todas las tarjetas principales y PayPal</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Plata 921 - Joyería Fina. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Funcionalidad para los modales y carrito
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elementos del DOM
+            const searchButton = document.getElementById('searchButton');
+            const userButton = document.getElementById('userButton');
+            const cartButton = document.getElementById('cartButton');
+            const closeSearch = document.getElementById('closeSearch');
+            const closeLogin = document.getElementById('closeLogin');
+            const closeCart = document.getElementById('closeCart');
+            const searchModal = document.getElementById('searchModal');
+            const loginModal = document.getElementById('loginModal');
+            const cartSidebar = document.getElementById('cartSidebar');
+            const modalOverlay = document.getElementById('modalOverlay');
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+            const totalAmount = document.getElementById('totalAmount');
+            const checkoutBtn = document.getElementById('checkoutBtn');
+            const cartCount = document.getElementById('cartCount');
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notification-text');
+            
+            // Carrito de compras
+            let cart = [];
+            let total = 0;
+            
+            // Abrir modal de búsqueda
+            searchButton.addEventListener('click', function() {
+                searchModal.classList.add('active');
+                modalOverlay.classList.add('active');
+            });
+            
+            // Abrir modal de login
+            userButton.addEventListener('click', function() {
+                loginModal.classList.add('active');
+                modalOverlay.classList.add('active');
+            });
+            
+            // Abrir carrito
+            cartButton.addEventListener('click', function() {
+                cartSidebar.classList.add('active');
+                modalOverlay.classList.add('active');
+            });
+            
+            // Cerrar modales
+            closeSearch.addEventListener('click', function() {
+                searchModal.classList.remove('active');
+                modalOverlay.classList.remove('active');
+            });
+            
+            closeLogin.addEventListener('click', function() {
+                loginModal.classList.remove('active');
+                modalOverlay.classList.remove('active');
+            });
+            
+            closeCart.addEventListener('click', function() {
+                cartSidebar.classList.remove('active');
+                modalOverlay.classList.remove('active');
+            });
+            
+            // Cerrar al hacer clic fuera del modal
+            modalOverlay.addEventListener('click', function() {
+                searchModal.classList.remove('active');
+                loginModal.classList.remove('active');
+                cartSidebar.classList.remove('active');
+                modalOverlay.classList.remove('active');
+            });
+            
+            // Añadir productos al carrito
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const id = this.getAttribute('data-id');
+                    const name = this.getAttribute('data-name');
+                    const price = parseFloat(this.getAttribute('data-price'));
+                    const img = this.getAttribute('data-img');
+                    
+                    // Verificar si el producto ya está en el carrito
+                    const existingItem = cart.find(item => item.id === id);
+                    
+                    if (existingItem) {
+                        existingItem.quantity += 1;
+                    } else {
+                        cart.push({
+                            id,
+                            name,
+                            price,
+                            img,
+                            quantity: 1
+                        });
+                    }
+                    
+                    // Actualizar carrito
+                    updateCart();
+                    
+                    // Mostrar notificación
+                    notificationText.textContent = `${name} añadido al carrito`;
+                    notification.classList.add('active');
+                    
+                    setTimeout(() => {
+                        notification.classList.remove('active');
+                    }, 3000);
+                });
+            });
+            
+            // Actualizar carrito
+            function updateCart() {
+                // Limpiar carrito
+                cartItems.innerHTML = '';
+                total = 0;
+                
+                if (cart.length === 0) {
+                    cartItems.innerHTML = `
+                        <div class="empty-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            <p>Tu carrito está vacío</p>
+                        </div>
+                    `;
+                    cartTotal.style.display = 'none';
+                    checkoutBtn.style.display = 'none';
+                    cartCount.classList.remove('active');
+                } else {
+                    // Agregar items al carrito
+                    cart.forEach(item => {
+                        const itemTotal = item.price * item.quantity;
+                        total += itemTotal;
+                        
+                        const cartItemElement = document.createElement('div');
+                        cartItemElement.classList.add('cart-item');
+                        cartItemElement.innerHTML = `
+                            <img src="${item.img}" alt="${item.name}">
+                            <div class="cart-item-info">
+                                <h3>${item.name}</h3>
+                                <p>$${item.price.toLocaleString()} MXN</p>
+                                <div class="item-quantity">
+                                    <button class="quantity-btn decrease" data-id="${item.id}">-</button>
+                                    <input type="number" class="quantity-input" value="${item.quantity}" min="1" data-id="${item.id}">
+                                    <button class="quantity-btn increase" data-id="${item.id}">+</button>
+                                </div>
+                            </div>
+                            <button class="remove-item" data-id="${item.id}"><i class="fas fa-times"></i></button>
+                        `;
+                        
+                        cartItems.appendChild(cartItemElement);
+                    });
+                    
+                    // Actualizar total
+                    totalAmount.textContent = `$${total.toLocaleString()} MXN`;
+                    cartTotal.style.display = 'flex';
+                    checkoutBtn.style.display = 'block';
+                    
+                    // Actualizar contador
+                    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                    cartCount.textContent = totalItems;
+                    cartCount.classList.add('active');
+                    
+                    // Agregar event listeners para los botones de cantidad
+                    document.querySelectorAll('.quantity-btn.increase').forEach(btn => {
+                        btn.addEventListener('click', function() {
+                            const itemId = this.getAttribute('data-id');
+                            const item = cart.find(item => item.id === itemId);
+                            item.quantity += 1;
+                            updateCart();
+                        });
+                    });
+                    
+                    document.querySelectorAll('.quantity-btn.decrease').forEach(btn => {
+                        btn.addEventListener('click', function() {
+                            const itemId = this.getAttribute('data-id');
+                            const item = cart.find(item => item.id === itemId);
+                            if (item.quantity > 1) {
+                                item.quantity -= 1;
+                                updateCart();
+                            }
+                        });
+                    });
+                    
+                    document.querySelectorAll('.remove-item').forEach(btn => {
+                        btn.addEventListener('click', function() {
+                            const itemId = this.getAttribute('data-id');
+                            cart = cart.filter(item => item.id !== itemId);
+                            updateCart();
+                        });
+                    });
+                }
+            }
+            
+            // Navegación suave
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Botón del hero
+            document.querySelector('.hero .btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Inicializar carrito
+            updateCart();
+        });
+    </script>
+</body>
+</html>
